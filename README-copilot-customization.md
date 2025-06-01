@@ -2,6 +2,8 @@
 
 This guide explains how to configure GitHub Copilot in VS Code for advanced, agentic code generation workflows. It covers setting up custom code generation instructions, using templates, and integrating best practices for Next.js, Python, and AI-powered projects.
 
+Inspired by https://github.com/kleneway/next-ai-starter - creating this for my own convenience.
+
 ## 1. Create Agentic Code Generation Instructions
 
 1. In your project, create a file at `.github/copilot-agentic-template.md` with your agentic code generation template. For example:
@@ -72,6 +74,18 @@ This guide explains how to configure GitHub Copilot in VS Code for advanced, age
 ## 5. Tips for Agentic Coding Workflows
 
 - Use checklists (e.g., `.cursor-tasks.md`) to break down features for AI agents.
+
+  **Example Tasks for a "Hello, World!" Project**
+  This file outlines a set of tasks for building a simple Next.js project. In this project, the user enters their name in a text box on the Home Page and is then greeted with "Hello, {name}" on a separate Greeting Page.
+
+  Here's an example prompt to use to generate this. Note that you'll first want to either provide a detailed set of notes / PRD of exactly what to build, or have a two-step process where you have the AI create the spec, then proceed with this step. Be sure to use an advanced thinking model with this, ideally "Deep Research" from OpenAI but o1-pro, o3-mini, flash-2-thinking, or (maybe?) DeepSeek R1 could work as well.
+
+  Create a very very very detailed markdown checklist of all of the stories for this project plan, with one-story-point tasks (with unchecked checkboxes) that break down each story. It is critically important that all of the details to implement this are in this list. Note that a very competent AI Coding Agent will be using this list to autonomously create this application, so be sure not to miss any details whatsoever, no matter how much time and thinking you must do to complete this very challenging but critically important task.
+
+  After you generate this task list, here is a prompt to use in cursor agent to kick this off (might be useful to put at the end of your cursorrules file as well?) Probably helpful to just @include the cursor-tasks.md file as well.
+
+  Go through each story and task in the .cursor-tasks.md file. Find the next story to work on. Review each unfinished task, correct any issues or ask for clarifications (only if absolutely needed!). Then proceed to create or edit files to complete each task. After you complete all the tasks in the story, update the file to check off any completed tasks. Run builds and commits after each story. Run all safe commands without asking for approval. Continue with each task until you have finished the story, then stop and wait for me to review.
+
 - Use templates (e.g., `.cursor-template.xml`) to generate task lists and stories.
 - Always review and test generated code.
 - Reference the Next AI Starter template for advanced patterns and integrations.
