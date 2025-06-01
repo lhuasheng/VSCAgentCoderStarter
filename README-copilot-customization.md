@@ -6,62 +6,62 @@ This guide explains how to configure GitHub Copilot in VS Code for advanced, age
 
 1. In your project, create a file at `.github/copilot-agentic-template.md` with your agentic code generation template. For example:
 
-```markdown
-<TEMPLATE>
-<INSTRUCTIONS>
-Use the <CODEBASE> code as reference, and convert the high-level <TASK> into a set of very detailed step-by-step instructions that an AI coding agent can complete. This could be very long, that's okay. The entire code is not needed, but give snippets if needed, but be very specific about the file names.
-Only include steps an AI coding agent can take. Do not include testing or any other work a human would do to confirm the task has been completed.
-ALWAYS have the agent run a build when it is complete. Be specific and decisive about what the agent should do.
-Do not include any additional meta instructions to the user. Use markdown formatting.
-</INSTRUCTIONS>
-<TASK>
-</TASK>
-<CURSOR_RULES>
-</CURSOR_RULES>
-<CODEBASE>
-</CODEBASE>
-<INSTRUCTIONS>
-Use the <CODEBASE> code as reference, and convert the high-level <TASK> into a set of very detailed step-by-step instructions that an AI coding agent can complete. This could be very long, that's okay. The entire code is not needed, but give snippets if needed, but be very specific about the file names.
-Only include steps an AI coding agent can take. Do not include testing or any other work a human would do to confirm the task has been completed.
-ALWAYS have the agent run a build when it is complete. Be specific and decisive about what the agent should do.
-Do not include any additional meta instructions to the user. Use markdown formatting.
-</INSTRUCTIONS>
-</TEMPLATE>
-```
+    ```markdown
+    <TEMPLATE>
+    <INSTRUCTIONS>
+    Use the <CODEBASE> code as reference, and convert the high-level <TASK> into a set of very detailed step-by-step instructions that an AI coding agent can complete. This could be very long, that's okay. The entire code is not needed, but give snippets if needed, but be very specific about the file names.
+    Only include steps an AI coding agent can take. Do not include testing or any other work a human would do to confirm the task has been completed.
+    ALWAYS have the agent run a build when it is complete. Be specific and decisive about what the agent should do.
+    Do not include any additional meta instructions to the user. Use markdown formatting.
+    </INSTRUCTIONS>
+    <TASK>
+    </TASK>
+    <CURSOR_RULES>
+    </CURSOR_RULES>
+    <CODEBASE>
+    </CODEBASE>
+    <INSTRUCTIONS>
+    Use the <CODEBASE> code as reference, and convert the high-level <TASK> into a set of very detailed step-by-step instructions that an AI coding agent can complete. This could be very long, that's okay. The entire code is not needed, but give snippets if needed, but be very specific about the file names.
+    Only include steps an AI coding agent can take. Do not include testing or any other work a human would do to confirm the task has been completed.
+    ALWAYS have the agent run a build when it is complete. Be specific and decisive about what the agent should do.
+    Do not include any additional meta instructions to the user. Use markdown formatting.
+    </INSTRUCTIONS>
+    </TEMPLATE>
+    ```
 
 ## 2. Configure VS Code Settings
 
 1. Open your VS Code `settings.json` (User or Workspace settings).
 2. Add or update the following setting to point Copilot to your agentic template:
 
-```jsonc
-"github.copilot.chat.codeGeneration.instructions": [
-    { "file": ".github/copilot-agentic-template.md" }
-]
-```
+    ```jsonc
+    "github.copilot.chat.codeGeneration.instructions": [
+        { "file": ".github/copilot-agentic-template.md" }
+    ]
+    ```
 
-This tells Copilot Chat to use your custom template for code generation instructions.
+    This tells Copilot Chat to use your custom template for code generation instructions.
 
 ## 3. Provide Modern Coding Practice Instructions
 
 1. (Optional but recommended) Add a file at `.github/copilot-instructions.md` with your coding standards and best practices. Example:
 
-```markdown
-# GitHub Copilot Instructions for Modern Coding Practices
+    ```markdown
+    # GitHub Copilot Instructions for Modern Coding Practices
 
-## General Guidelines
-- Write clean, readable, and maintainable code.
-- Use descriptive names for variables, functions, and classes.
-- Add comments for complex logic and public APIs.
-- Prefer composition over inheritance.
-- Write modular, reusable code.
-- Always handle errors and edge cases.
+    ## General Guidelines
+    - Write clean, readable, and maintainable code.
+    - Use descriptive names for variables, functions, and classes.
+    - Add comments for complex logic and public APIs.
+    - Prefer composition over inheritance.
+    - Write modular, reusable code.
+    - Always handle errors and edge cases.
 
-## Next.js (JavaScript/TypeScript)
-- Use TypeScript for all new code and components.
-- Use functional React components and React hooks.
-- ...
-```
+    ## Next.js (JavaScript/TypeScript)
+    - Use TypeScript for all new code and components.
+    - Use functional React components and React hooks.
+    - ...
+    ```
 
 ## 4. Example Workspace Files
 
