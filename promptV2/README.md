@@ -52,6 +52,9 @@ This folder contains a modular set of prompts for orchestrating a full-stack sof
 
 ## Best Practices
 - Always review existing code, documentation, and planning artifacts before starting a new phase.
+Each agent should document their outputs and decisions for the next role.
+Use the dependency map and context files to maintain clarity as the project evolves.
+Reference the onboarding and knowledge transfer practices in your general instructions to ensure smooth team transitions.
 - Cross-reference context, requirements, and checklists for consistency.
 - Use the rubric for every review and acceptance step.
 - Document all outputs and decisions for future agents and human collaborators.

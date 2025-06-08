@@ -46,46 +46,54 @@ Inspired by https://github.com/kleneway/next-ai-starter - creating this for my o
 
 ## 3. Provide Modern Coding Practice Instructions
 
-1. (Optional but recommended) Add a file at `.github/copilot-instructions.md` with your coding standards and best practices. Example:
+1. (Recommended) Add instruction files in `.github/instructions/` for your coding standards and best practices. Example files:
 
-    ```markdown
-    # GitHub Copilot Instructions for Modern Coding Practices
+    - `.github/instructions/general.instructions.md` — General coding, onboarding, and knowledge transfer practices for all languages and roles.
+    - `.github/instructions/python.instructions.md` — Python-specific standards.
+    - `.github/instructions/nextjs.instructions.md` — Next.js/TypeScript/React-specific standards.
 
-    ## General Guidelines
+    These files will be automatically picked up by Copilot if you are using the latest Copilot extension and VS Code (see [Copilot Customization Docs](https://code.visualstudio.com/docs/copilot/copilot-customization#_use-instructionsmd-files)).
+
+    Example for `general.instructions.md`:
+
+    ```instructions
+    ---
+    applyTo: "**"
+    ---
+    # General Coding & AI Project Guidelines for Copilot
     - Write clean, readable, and maintainable code.
     - Use descriptive names for variables, functions, and classes.
     - Add comments for complex logic and public APIs.
     - Prefer composition over inheritance.
     - Write modular, reusable code.
     - Always handle errors and edge cases.
-
-    ## Next.js (JavaScript/TypeScript)
-    - Use TypeScript for all new code and components.
-    - Use functional React components and React hooks.
-    - ...
+    - Use a checklist of tasks (e.g., .cursor-tasks.md) to track progress and break down features.
+    - Use templates (e.g., .cursor-template.xml) for generating task lists and stories.
+    - Leverage AI coding tools for rapid prototyping and refactoring, but always review and test generated code.
+    - Follow the best practices and structure from the Next AI Starter template for integrating AI, background jobs, and infrastructure services.
+    - Never commit secrets or credentials to the repository.
+    - Validate and sanitize all user input.
+    - Use environment variables for sensitive configuration.
+    - Keep dependencies up to date and review for vulnerabilities.
+    - Write tests for critical paths and edge cases.
+    - Document all setup, build, and deployment steps in README.md.
+    - Provide onboarding documentation and checklists for new team members (e.g., setup steps, key contacts, project overview).
+    - Encourage mentorship and knowledge sharing within the team.
+    - Maintain up-to-date documentation for key decisions, architecture, and processes to support knowledge transfer.
+    - Ensure departing team members document critical knowledge and hand off responsibilities effectively.
     ```
 
 ## 4. Example Workspace Files
 
 - `.github/copilot-agentic-template.md` — Your agentic code generation template.
-- `.github/copilot-instructions.md` — Modern coding standards for Copilot.
+- `.github/instructions/general.instructions.md` — General coding standards and onboarding/knowledge transfer practices.
+- `.github/instructions/python.instructions.md` — Python-specific standards.
+- `.github/instructions/nextjs.instructions.md` — Next.js/TypeScript/React-specific standards.
 - `.env` — Example environment variables for your stack.
 
 ## 5. Tips for Agentic Coding Workflows
 
 - Use checklists (e.g., `.cursor-tasks.md`) to break down features for AI agents.
-
-  **Example Tasks for a "Hello, World!" Project**
-  This file outlines a set of tasks for building a simple Next.js project. In this project, the user enters their name in a text box on the Home Page and is then greeted with "Hello, {name}" on a separate Greeting Page.
-
-  Here's an example prompt to use to generate this. Note that you'll first want to either provide a detailed set of notes / PRD of exactly what to build, or have a two-step process where you have the AI create the spec, then proceed with this step. Be sure to use an advanced thinking model with this, ideally "Deep Research" from OpenAI but o1-pro, o3-mini, flash-2-thinking, or (maybe?) DeepSeek R1 could work as well.
-
-  Create a very very very detailed markdown checklist of all of the stories for this project plan, with one-story-point tasks (with unchecked checkboxes) that break down each story. It is critically important that all of the details to implement this are in this list. Note that a very competent AI Coding Agent will be using this list to autonomously create this application, so be sure not to miss any details whatsoever, no matter how much time and thinking you must do to complete this very challenging but critically important task.
-
-  After you generate this task list, here is a prompt to use in cursor agent to kick this off (might be useful to put at the end of your cursorrules file as well?) Probably helpful to just @include the cursor-tasks.md file as well.
-
-  Go through each story and task in the .cursor-tasks.md file. Find the next story to work on. Review each unfinished task, correct any issues or ask for clarifications (only if absolutely needed!). Then proceed to create or edit files to complete each task. After you complete all the tasks in the story, update the file to check off any completed tasks. Run builds and commits after each story. Run all safe commands without asking for approval. Continue with each task until you have finished the story, then stop and wait for me to review.
-
 - Use templates (e.g., `.cursor-template.xml`) to generate task lists and stories.
 - Always review and test generated code.
 - Reference the Next AI Starter template for advanced patterns and integrations.

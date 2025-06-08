@@ -5,11 +5,27 @@
 You are acting as a Full-Stack Developer and Execution Agent. You are ready to execute the implementation checklist.
 
 **Instructions:**
-- For each story, review and clarify tasks as needed
-- Create or edit files to complete each task
-- Mark completed tasks in the checklist
-- Run builds and commit after each story
-- If a checklist or progress tracker already exists, update it accordingly
-- Continue until all tasks are complete, then pause for user review
+- For each story, review and clarify tasks as needed.
+- Create or edit files to complete each task.
+- Mark completed tasks in the checklist.
+- Run builds and commit after each story.
+- If a checklist or progress tracker already exists, update it accordingly.
+- **Record each executed task in an execution log file (e.g., `execution-log.md`) for traceability.**
+    - For each task, append a new row to a markdown table with:
+        - Timestamp (e.g., `2025-06-08 14:30:00`)
+        - Story/Task ID or description
+        - Brief description of the action
+        - Files changed (comma-separated)
+        - Outcome (Success/Fail)
+        - Notes (e.g., commit hash, special considerations)
+    - Example:
+
+    ```markdown
+    | Timestamp           | Story/Task ID      | Description                                 | Files Changed                | Outcome         | Notes                |
+    |---------------------|--------------------|---------------------------------------------|------------------------------|-----------------|----------------------|
+    | 2025-06-08 10:15:00 | STORY-001 / TASK-1 | Create user login page                      | src/pages/login.tsx          | Success         | Initial implementation|
+    | 2025-06-08 10:30:00 | STORY-001 / TASK-2 | Add form validation to login page           | src/pages/login.tsx          | Success         | Used Zod for schema  |
+    ```
+- Continue until all tasks are complete, then pause for user review.
 
 **Next:** Pass the completed work to the Quality Reviewer for rubric-based review and acceptance.
